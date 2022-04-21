@@ -6,16 +6,31 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Blank", menuName = "Blank")]
 public class Item : ScriptableObject
 {
-    public string Itemname;
+    [SerializeField] protected string Itemname;
     [TextArea(3,4)]
-    public string ItemDescription;
-    public bool IsEquipable;
-    public bool IsConsumable;
-    public bool IsJunk;
-    public Sprite Sprite;
+    [SerializeField] protected string ItemDescription;
+    [SerializeField] protected bool IsEquipable;
+    [SerializeField] protected bool IsConsumable;
+    [SerializeField] protected bool IsJunk;
+    [SerializeField] protected Sprite Sprite;
 
 
 
+
+    //Getters and setters
+
+    public Sprite getSprite() { return this.Sprite; }
+
+    public string getName() { return this.Itemname; }
+
+    public string getDescription() { return this.ItemDescription; }
+
+    public bool isEquipable() { return this.IsEquipable; }
+
+    public bool isConsumable() { return this.IsConsumable; }
+
+    public bool isJunk() { return this.IsJunk; }
+   
 
 
     //These Functions are called from the item-slot on Item-Based Interactions, such as Using, Equipping and Inspecting, Interactions such as Removing are perfomed on the Playerdata Functions

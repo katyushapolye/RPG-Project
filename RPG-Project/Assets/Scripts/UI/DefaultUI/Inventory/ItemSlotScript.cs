@@ -30,14 +30,14 @@ public class ItemSlotScript : MonoBehaviour
         {
             return;
         }
-        ItemIcon.sprite = Item.Sprite;
-        ItemName.text = Item.Itemname;
+        ItemIcon.sprite = Item.getSprite();
+        ItemName.text = Item.getName();
         ItemType.text = Item.GetType().ToString();
         UseButton.interactable = true;
         RemoveButton.interactable = true;
         EquipButton.interactable = true;
         ItemInspectButton.interactable = true;
-        ItemDescription.text = Item.ItemDescription;
+        ItemDescription.text = Item.getDescription();
 
     }
     public void EmptyItem()
@@ -114,14 +114,14 @@ public class ItemSlotScript : MonoBehaviour
     public void ItemSlotEquipUI()
     {
         if(this.Item == null) { return;}
-        if(Item.IsEquipable == false) { return; }
+        if(Item.isEquipable() == false) { return; }
         StartCoroutine(FindObjectOfType<UIMaster>().UIConfirm(ItemSlotEquipItem));
     }
 
     public void ItemUseUI()
     {
         if (this.Item == null) { return; }
-        if(this.Item.IsConsumable == true || this.Item.IsJunk)
+        if(this.Item.isConsumable() == true || this.Item.isJunk())
         {
             StartCoroutine(FindObjectOfType<UIMaster>().UIConfirm(ItemSlotUseItem));
         }

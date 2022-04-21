@@ -29,20 +29,20 @@ public class Enemy : ScriptableObject
 
     //Unity does not accept fixed size array in inspector
     private const int COUNT = 4;
-    protected SpellCard[] grimoire =  new SpellCard[COUNT];
+    [SerializeField] protected SpellCard[] grimoire =  new SpellCard[COUNT];
 
 
-    public string getEnemyName() { return Name; }
+    public ref readonly string getEnemyName() { return ref Name; }
     public Sprite getSprite() { return EnemySprite; }
     public void setHealth(int health)
     {
         this.health = health;
     }
 
-    public int getSkillModifier(){return SkillModifier;}
+    public ref readonly int getSkillModifier(){return ref SkillModifier;}
 
     public int getHealth() { return health; }
-    public int getMaxHealth() { return maxhealth;}
+    public ref readonly int getMaxHealth() { return ref maxhealth;}
     public SpellCard[] getEnemyGrimoire() {return grimoire;}
 
     public AIStrategy getAIStrategy(){return AIstrategy;}

@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class EquipamentSlot : MonoBehaviour
 {
     private Item EquipedItem;
-    public Text ItemName;
-    public Text ItemMainAttribute;
-    public Text ItemMainAttributeValue;
-    public CorrespondentItem Correspondent;
+    [SerializeField] protected Text ItemName;
+    [SerializeField] protected Text ItemMainAttribute;
+    [SerializeField] protected Text ItemMainAttributeValue;
+    [SerializeField] protected CorrespondentItem Correspondent;
     public enum CorrespondentItem
     {
         Weapon,
@@ -68,33 +68,33 @@ public class EquipamentSlot : MonoBehaviour
         {
             case "Weapon":
                 Weapon weapon = (Weapon)EquipedItem;
-                ItemName.text = weapon.Itemname;
+                ItemName.text = weapon.getName();
                 ItemMainAttribute.text = "DMG";
                 ItemMainAttributeValue.text = weapon.Damage.ToString();
                 break;
             case "Shield":
                 Shield shield = (Shield)EquipedItem;
-                ItemName.text = shield.Itemname;
+                ItemName.text = shield.getName();
                 ItemMainAttribute.text = "PTC";
                 ItemMainAttributeValue.text = shield.Protection.ToString();
                 break;
             case "UpperArmour":
                 UpperArmour upperarmour = (UpperArmour)EquipedItem; //Downgrade is lowkey kinda useful
-                ItemName.text = upperarmour.Itemname;
+                ItemName.text = upperarmour.getName();
                 ItemMainAttribute.text = "DEF";
                 ItemMainAttributeValue.text = ((upperarmour.PhysicalDefense + upperarmour.MagicalDefense) /2).ToString();
 
                 break;
             case "LowerArmour":
                 LowerArmour lowerarmour = (LowerArmour)EquipedItem;
-                ItemName.text = lowerarmour.Itemname;
+                ItemName.text = lowerarmour.getName();
                 ItemMainAttribute.text = "DEF";
                 ItemMainAttributeValue.text = ((lowerarmour.PhysicalDefense + lowerarmour.MagicalDefense) / 2).ToString();
 
                 break;
             case "Backpack":
                 Backpack backpack = (Backpack)EquipedItem;
-                ItemName.text = backpack.Itemname;
+                ItemName.text = backpack.getName();
                 ItemMainAttribute.text = "CAP";
                 ItemMainAttributeValue.text = backpack.Size.ToString();
 

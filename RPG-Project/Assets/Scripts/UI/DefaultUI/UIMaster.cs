@@ -12,74 +12,74 @@ public class UIMaster : MonoBehaviour
 {
     private AudioHandler audioHandler;
     //MainUI
-    public Image MapIcon;
-    public Text PlayernameTextBox;
-    public Text WarningPanelText;
+    [SerializeField] protected Image MapIcon;
+    [SerializeField] protected Text PlayernameTextBox;
+    [SerializeField] protected Text WarningPanelText;
     public static bool IsUIActive = true;
-    public GameObject UISides;
-    public GameObject WarningPanel;
-    public GameObject UIUpdateIcon;
+    [SerializeField] protected GameObject UISides;
+    [SerializeField] protected GameObject WarningPanel;
+    [SerializeField] protected GameObject UIUpdateIcon;
 
 
     private Animator UIIconAnimator;
 
 
     //InventoryUI
-    public GameObject InventoryPanel;
-    public GameObject ItemSlotMaster;
+    [SerializeField] protected GameObject InventoryPanel;
+    [SerializeField] protected GameObject ItemSlotMaster;
 
-    public Text MCHealthComentary;
-    public Text MCSanityComentary;
+    [SerializeField] protected Text MCHealthComentary;
+    [SerializeField] protected Text MCSanityComentary;
 
-    public Sprite FemaleChar;
-    public Sprite MaleChar;
-    public Image HealthMonitor;
+    [SerializeField] protected Sprite FemaleChar;
+    [SerializeField] protected Sprite MaleChar;
+    [SerializeField] protected Image HealthMonitor;
 
     private Animator HealthMonitorAnimator;
 
-    public static ItemSlotScript[] ItemSlotArray;
+    [SerializeField] protected static ItemSlotScript[] ItemSlotArray;
 
     //CharUI
-    public Image CharSprite;
-    public GameObject EquipamentSlotMaster;
+    [SerializeField] protected Image CharSprite;
+    [SerializeField] protected GameObject EquipamentSlotMaster;
 
-    public static EquipamentSlot[] EquipamentSlotArray;
-    public GameObject CharacterPanel;
+    [SerializeField] protected EquipamentSlot[] EquipamentSlotArray;
+    [SerializeField] protected GameObject CharacterPanel;
 
     //StatsUI
-    public Text PlayerNameStat;
-    public Text PlayerAgeStat;
-    public Text PlayerLevelStat;
-    public Text PlayerCurrentXPStat;
-    public Text NextLevelXPStat;
-    public Text PlayerCurrentSpecializationStat;
+    [SerializeField] protected Text PlayerNameStat;
+    [SerializeField] protected Text PlayerAgeStat;
+    [SerializeField] protected Text PlayerLevelStat;
+    [SerializeField] protected Text PlayerCurrentXPStat;
+    [SerializeField] protected Text NextLevelXPStat;
+    [SerializeField] protected Text PlayerCurrentSpecializationStat;
 
-    public Text EletronicsSkillLevelStat;
-    public Text ChemistrySkillLevelStat;
-    public Text FirstAidSkillLevelStat;
-    public Text EnduranceSkillLevelStat;
-    public Text HistorySkillLevelStat;
-    public Text SpeechSkillLevelStat;
+    [SerializeField] protected Text EletronicsSkillLevelStat;
+    [SerializeField] protected Text ChemistrySkillLevelStat;
+    [SerializeField] protected Text FirstAidSkillLevelStat;
+    [SerializeField] protected Text EnduranceSkillLevelStat;
+    [SerializeField] protected Text HistorySkillLevelStat;
+    [SerializeField] protected Text SpeechSkillLevelStat;
 
-    public Text CurrentSkillPointsUI;
+    [SerializeField] protected Text CurrentSkillPointsUI;
 
-    public GameObject SkillButtonsPlus;
-    public GameObject SkillButtonsMinus;
-    public GameObject StatsPanel;
+    [SerializeField] protected GameObject SkillButtonsPlus;
+    [SerializeField] protected GameObject SkillButtonsMinus;
+    [SerializeField] protected GameObject StatsPanel;
 
     //ConfirmBox
-    public Text ConfirmationText;
-    public Button YesButton;
-    public Button NoButton;
-    public Button IntBlocker;
-    public GameObject ConfirmPanel;
+    [SerializeField] protected Text ConfirmationText;
+    [SerializeField] protected Button YesButton;
+    [SerializeField] protected Button NoButton;
+    [SerializeField] protected Button IntBlocker;
+    [SerializeField] protected GameObject ConfirmPanel;
     private bool ConfirmationVariable;
 
 
 
 
     //TaskUI
-    public GameObject TaskLogPanel;
+    [SerializeField] protected GameObject TaskLogPanel;
 
 
     void Awake()
@@ -261,7 +261,7 @@ public class UIMaster : MonoBehaviour
     //UpdateUIchar is under developement, follows the same principle as the Inventory, loop trough all slots, and fix the items of Playerdata into them.
 
 
-    public static void UpdateUIChar()
+    public void UpdateUIChar()
     {
 
         for (int i = 0; i < EquipamentSlotArray.Length; i++)

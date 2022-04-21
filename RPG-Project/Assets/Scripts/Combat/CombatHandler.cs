@@ -13,17 +13,17 @@ public class CombatHandler : MonoBehaviour
     private AudioHandler audioHandler;
     //UI PART OF VARIABLES
 
-    public GameObject combatbackGround = null;
-    public GameObject combatEnemyGameObject= null;
+    [SerializeField] private GameObject combatbackGround = null;
+    [SerializeField] private GameObject combatEnemyGameObject= null;
 
-    public GameObject grimoireSlotsParent;
+    [SerializeField] private GameObject grimoireSlotsParent;
 
-    public Text PlayerHealthText;
-    public Text PlayerSanityText;
+    [SerializeField] private Text PlayerHealthText;
+    [SerializeField] private Text PlayerSanityText;
 
-    public Text EnemyHealthText;
+    [SerializeField] private Text EnemyHealthText;
 
-    public GameObject PlayerGrimoire;
+    [SerializeField] private GameObject PlayerGrimoire;
 
     private GameObject[] grimoireSlotsArray = new GameObject[4];
     
