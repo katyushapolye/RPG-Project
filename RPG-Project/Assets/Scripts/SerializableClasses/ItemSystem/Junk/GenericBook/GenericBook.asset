@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a94bac2d221da44988a5fa764cd749e, type: 3}
+  m_Name: GenericBook
+  m_EditorClassIdentifier: 
+  Itemname: Generic Book
+  ItemDescription: An Ordinary book, maybe some ordinary magician have an use for
+    it.
+  IsEquipable: 0
+  IsConsumable: 0
+  IsJunk: 1
+  Sprite: {fileID: 21300000, guid: b0840c85cd66e9041b851ce7f5152ea2, type: 3}

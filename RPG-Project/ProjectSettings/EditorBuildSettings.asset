@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/BootStrap/-1.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/0 (Combat).unity
+    guid: cb9d3abaac3028342aa182988e42bcf1
+  - enabled: 1
+    path: Assets/Scenes/1 (Menu).unity
+    guid: edb891cacc82b2049b9157c0fcc5a533
+  - enabled: 1
+    path: Assets/Scenes/3 (Char Create).unity
+    guid: 1294590e417e36d45bc801d27f34d657
+  - enabled: 1
+    path: Assets/Scenes/4 (Muenzuka).unity
+    guid: 5be1cdcddd227e349b214caf05e82035
+  m_configObjects: {}

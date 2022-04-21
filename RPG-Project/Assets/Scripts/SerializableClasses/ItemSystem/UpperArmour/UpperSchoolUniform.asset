@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64b1f0033252eb4685ed773775e46f3, type: 3}
+  m_Name: UpperSchoolUniform
+  m_EditorClassIdentifier: 
+  Itemname: School Blazer
+  ItemDescription: My Simple Cloth School Blazer
+  IsEquipable: 1
+  IsConsumable: 0
+  IsJunk: 0
+  Sprite: {fileID: 21300000, guid: f0c468cba602da34a9c63ccf4599f325, type: 3}
+  PhysicalDefense: 1
+  MagicalDefense: 1
