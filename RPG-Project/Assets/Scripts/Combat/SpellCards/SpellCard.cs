@@ -11,6 +11,11 @@ public class SpellCard: ScriptableObject {
         Physical,
         Sanity,
     }
+    public enum Class
+    {
+        Offensive,
+        Defensive,
+    }
 
     public enum Pattern
     {
@@ -18,14 +23,16 @@ public class SpellCard: ScriptableObject {
         Straight,
         Ricochet,
         Circular,
+        Laser,
         Random, 
     }
 
-
+    //Serialize and privatise everything
     public string spellName;
     [TextArea(1,1)]
     public string spellDescription;
     public DamageType Damagetype;
+    [SerializeField] private Class spellClass;
     public int rawDamage;
     [Range(1, 10)]
     public int Size;

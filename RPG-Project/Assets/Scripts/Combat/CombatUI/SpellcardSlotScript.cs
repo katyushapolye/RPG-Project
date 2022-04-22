@@ -8,12 +8,12 @@ public class SpellcardSlotScript : MonoBehaviour
 {
 
     //UI Stuff
-    public Text SpellcardNameText;
-    public Text SpellcardDescriptionText;
-    public Text SpellcardPatternText;
+    [SerializeField] protected Text SpellcardNameText;
+    [SerializeField] protected Text SpellcardDescriptionText;
+    [SerializeField] protected Text SpellcardPatternText;
 
-    public Text SpellcardDamageStaticText;
-    public Text SpellcardSpellPatternStaticText;
+    [SerializeField] protected Text SpellcardDamageStaticText;
+    [SerializeField] protected Text SpellcardSpellPatternStaticText;
 
     public Button spellButton;
 

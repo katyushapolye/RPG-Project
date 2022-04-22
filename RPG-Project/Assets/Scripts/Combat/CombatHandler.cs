@@ -16,14 +16,14 @@ public class CombatHandler : MonoBehaviour
     [SerializeField] private GameObject combatbackGround = null;
     [SerializeField] private GameObject combatEnemyGameObject= null;
 
-    [SerializeField] private GameObject grimoireSlotsParent;
+    [SerializeField] private GameObject grimoireSlotsParent = null;
 
-    [SerializeField] private Text PlayerHealthText;
-    [SerializeField] private Text PlayerSanityText;
+    [SerializeField] private Text PlayerHealthText = null;
+    [SerializeField] private Text PlayerSanityText = null;
 
-    [SerializeField] private Text EnemyHealthText;
+    [SerializeField] private Text EnemyHealthText = null;
 
-    [SerializeField] private GameObject PlayerGrimoire;
+    [SerializeField] private GameObject PlayerGrimoire = null;
 
     private GameObject[] grimoireSlotsArray = new GameObject[4];
     

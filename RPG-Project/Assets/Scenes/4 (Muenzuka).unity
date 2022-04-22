@@ -4284,6 +4284,9 @@ MonoBehaviour:
   InitialBag: {fileID: 11400000, guid: 67b64f49b0e14ab4c94110f6947c240a, type: 2}
   InitialBag2: {fileID: 11400000, guid: 2c970fe25dad9444eb8e881b14f94f08, type: 2}
   InitialSpellcard: {fileID: 11400000, guid: a2d0e576c4a9b28469a3d94e31ec7b4a, type: 2}
+  InitialSpellcard2: {fileID: 11400000, guid: 6d28729195bddc242b15c3879be3b508, type: 2}
+  InitialSpellcard3: {fileID: 11400000, guid: 739517a392a42b2479748d0bc213c7ab, type: 2}
+  InitialSpellcard4: {fileID: 11400000, guid: ad7a82c74fb181b4d9306d7c23d19fc7, type: 2}
   Komachi: {fileID: 1251450531}
   combatArenaMuenzuka: {fileID: 21300000, guid: b5daafa358c549b49ad0343a217ed598,
     type: 3}
@@ -13489,6 +13492,7 @@ MonoBehaviour:
   HealthMonitor: {fileID: 908607097}
   CharSprite: {fileID: 1263674376}
   EquipamentSlotMaster: {fileID: 1204064354}
+  EquipamentSlotArray: []
   CharacterPanel: {fileID: 866941904}
   PlayerNameStat: {fileID: 1532886213}
   PlayerAgeStat: {fileID: 511956872}
@@ -17925,7 +17929,7 @@ PrefabInstance:
     - target: {fileID: 382882286709614683, guid: bc54785fa466d1543b0bbcf3d904a710,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -322.09985
+      value: -322.09982
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc54785fa466d1543b0bbcf3d904a710, type: 3}

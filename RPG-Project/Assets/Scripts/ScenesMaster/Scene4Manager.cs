@@ -15,7 +15,10 @@ public class Scene4Manager : SceneMaster
     public Item InitialBag;
     public Item InitialBag2;
     public SpellCard InitialSpellcard;
-    
+    public SpellCard InitialSpellcard2;
+    public SpellCard InitialSpellcard3;
+    public SpellCard InitialSpellcard4;
+
     public GameObject Komachi;
 
     public Sprite combatArenaMuenzuka;
@@ -43,7 +46,13 @@ public class Scene4Manager : SceneMaster
         PlayerData.AddItem(InitialConsumable);
         PlayerData.AddItem(InitialBag2);
         PlayerData.GetGrimoire().Add(InitialSpellcard);
-     
+        PlayerData.GetGrimoire().Add(InitialSpellcard2);
+        PlayerData.GetGrimoire().Add(InitialSpellcard3);
+        PlayerData.GetGrimoire().Add(InitialSpellcard4);
+
+
+
+
 
 
         PlayerData.EquipedBackpack = (Backpack)InitialBag;
