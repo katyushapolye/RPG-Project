@@ -11,6 +11,7 @@ public class SceneMaster : MonoBehaviour
         Boostrap,
         Combat,
         Menu,
+        Intro,
         CharCreation,
         Muenzuka
     }

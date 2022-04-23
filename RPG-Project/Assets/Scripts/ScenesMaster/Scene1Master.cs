@@ -17,7 +17,7 @@ public class Scene1Master : SceneMaster
     public void NextScene()
     {
 
-        Transitionhandler.NextScene((int)SceneMaster.Sceneindex.CharCreation);
+        Transitionhandler.NextScene((int)SceneMaster.Sceneindex.Intro);
         PlayerData.CurrentHealth = 100;
         PlayerData.CurrentSanity = 100;
     }
