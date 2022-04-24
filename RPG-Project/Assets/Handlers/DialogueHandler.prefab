@@ -591,8 +591,10 @@ MonoBehaviour:
   UpdateDialogueButton: {fileID: 382882286452414240}
   EndDialogueButton: {fileID: 382882287164938609}
   Scenemaster: {fileID: 0}
+  ContinueButton: {fileID: 382882286452414240}
   CurrentDialogueBlock:
     DialogueBlockName: 
+    EndDialogueTrigger: 
     Dialogues: []
     MainActor: {fileID: 0}
     SecondaryActor: {fileID: 0}

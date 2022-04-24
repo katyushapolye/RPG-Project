@@ -84,6 +84,9 @@ public class DialogueHandler: MonoBehaviour
 
     public void UpdateDialogue()
     {
+        ContinueButton.gameObject.SetActive(false);
+
+        //
         //In Case the player Skips the dialogue before it ends its sequence, try to stop the past audio and the letter animations//
         StopAllCoroutines();
         try
@@ -94,7 +97,8 @@ public class DialogueHandler: MonoBehaviour
         {
             Debug.Log("Audio To Stop Was Not Found");
         }
-        
+        StartCoroutine(HoldButton());
+
 
         //Update all the variables and displays//
         MainActor.UpdateSprite(CurrentDialogues[DialogueStep].MainActorSprite);
@@ -110,6 +114,7 @@ public class DialogueHandler: MonoBehaviour
         {
             UpdateDialogueButton.gameObject.SetActive(false);
             EndDialogueButton.gameObject.SetActive(true);
+            ContinueButton.gameObject.SetActive(false);
             return;
         }
 
@@ -140,7 +145,21 @@ public class DialogueHandler: MonoBehaviour
 
 
 
-
+    IEnumerator HoldButton()
+    {
+        if (DialogueStep == CurrentDialogues.Count)
+        {
+            
+        }
+        float seconds = this.CurrentDialogueBlock.Dialogues[DialogueStep].letterSpeed * this.CurrentDialogueBlock.Dialogues[DialogueStep].DialogueText.Length + 0.1f;
+        Debug.Log(seconds);
+        yield return new WaitForSeconds(seconds);
+        ContinueButton.gameObject.SetActive(true);
+        if (DialogueStep == CurrentDialogues.Count)
+        {
+            ContinueButton.gameObject.SetActive(false);
+        }
+    }
 
 
 
