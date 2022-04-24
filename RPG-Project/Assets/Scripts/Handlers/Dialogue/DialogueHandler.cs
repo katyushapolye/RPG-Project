@@ -174,7 +174,7 @@ public class DialogueHandler: MonoBehaviour
         if (SecondaryActor != null) { SecondaryActor.UpdateSprite(CurrentDialogues[DialogueStep-1].SecondaryActorSprite);}
         DialogueText.text = FormatString(CurrentDialogues[DialogueStep-1].DialogueText, PlayerData.Playername);
         DialogueName.text = FormatString(CurrentDialogues[DialogueStep-1].SpeakerName, null);
-        if (DialogueStep == CurrentDialogues.Count-1)
+        if (DialogueStep == CurrentDialogues.Count)
         {
             Debug.Log("End");
             SkipButton.gameObject.SetActive(false);
