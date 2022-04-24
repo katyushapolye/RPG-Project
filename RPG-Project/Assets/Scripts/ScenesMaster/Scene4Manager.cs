@@ -6,18 +6,14 @@ using UnityEngine;
 public class Scene4Manager : SceneMaster
 {
     public DialogueBlock IntroDialogueBlock;
-    public Item InitialWeapon;
-    public Item InitialShield;
     public Item InitialUpper;
     public Item InitialLower;
     public Item InitialJunk;
     public Item InitialConsumable;
     public Item InitialBag;
-    public Item InitialBag2;
-    public SpellCard InitialSpellcard;
-    public SpellCard InitialSpellcard2;
-    public SpellCard InitialSpellcard3;
-    public SpellCard InitialSpellcard4;
+    public Item InitialGrimoire;
+    public Item InitalCellphone;
+
 
     [SerializeField] protected GameObject Komachi;
     [SerializeField] protected GameObject BG;
@@ -38,30 +34,26 @@ public class Scene4Manager : SceneMaster
 
         UIMasterVar.ToggleUI(true);
 
-
-        PlayerData.AddItem(InitialWeapon);
-        PlayerData.AddItem(InitialUpper);
-        PlayerData.AddItem(InitialLower);
-        PlayerData.AddItem(InitialShield);
+        //This will be handled later correctly, debug only
+        PlayerData.EquipedLowerArmour = (LowerArmour)InitialLower;
+        PlayerData.EquipedUpperArmour = (UpperArmour)InitialUpper;
         PlayerData.AddItem(InitialJunk);
         PlayerData.AddItem(InitialConsumable);
-        PlayerData.AddItem(InitialBag2);
-        PlayerData.GetGrimoire().Add(InitialSpellcard);
-        PlayerData.GetGrimoire().Add(InitialSpellcard2);
-        PlayerData.GetGrimoire().Add(InitialSpellcard3);
-        PlayerData.GetGrimoire().Add(InitialSpellcard4);
-
-
-
-
-
-
         PlayerData.EquipedBackpack = (Backpack)InitialBag;
+        PlayerData.AddItem(InitialGrimoire);
+        PlayerData.AddItem(InitalCellphone);
+
+
         Komachi.GetComponent<KomachiMaster>().KomachiActivate();
         FindObjectOfType<DialogueHandler>().StartDialogue(IntroDialogueBlock);
         PlayerData.UpdatePlayerStats();
- 
 
+    }
+
+    public void StartIntroCombatDialogue()
+    {
+        Debug.Log("DialogueConbat");
+        UpdateSceneTrigger("CombatStart");
     }
 
     public override void UpdateSceneTrigger(string SceneTrigger)
@@ -98,9 +90,11 @@ public class Scene4Manager : SceneMaster
                     break;
 
                 case "FadeIn":
+                    Debug.Log("FadeIn");
                     BG.GetComponent<Animator>().SetTrigger("FadeIn");
                     break;
                 case "FadeOut":
+                    Debug.Log("FadeOut");
                     BG.GetComponent<Animator>().SetTrigger("FadeOut");
 
                     break;

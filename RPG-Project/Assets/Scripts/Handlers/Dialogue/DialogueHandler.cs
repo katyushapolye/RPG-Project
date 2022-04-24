@@ -24,6 +24,9 @@ public class DialogueHandler: MonoBehaviour
     private NPCMaster SecondaryActor;
     private AudioHandler AudioHandler;
     [SerializeField] protected Button ContinueButton;
+    [SerializeField] protected Button SkipButton;
+
+    Coroutine letterAnim = null;
 
     //Unique Temporary Variables//
     public DialogueBlock CurrentDialogueBlock;
@@ -65,7 +68,7 @@ public class DialogueHandler: MonoBehaviour
         if (SecondaryActor != null) { SecondaryActor.UpdateSprite(CurrentDialogues[0].SecondaryActorSprite); }
         DialogueName.text = FormatString(CurrentDialogues[0].SpeakerName,null);
         Scenemaster.UpdateSceneTrigger(CurrentDialogues[0].SceneTrigger);
-        StartCoroutine(LetterAnimation(FormatString(CurrentDialogues[0].DialogueText,PlayerData.Playername),DialogueText, CurrentDialogues[DialogueStep-1].letterSpeed));
+        letterAnim = StartCoroutine(LetterAnimation(FormatString(CurrentDialogues[0].DialogueText,PlayerData.Playername),DialogueText, CurrentDialogues[DialogueStep-1].letterSpeed));
         AudioHandler.Play(CurrentDialogues[0].DialogueSoundName);
         UpdateDialogueButton.gameObject.SetActive(true);
 
@@ -84,7 +87,15 @@ public class DialogueHandler: MonoBehaviour
 
     public void UpdateDialogue()
     {
+        Debug.Log(DialogueStep);
+        Debug.Log(CurrentDialogueBlock.Dialogues.Count);
+        //Couroutines create a sorta of unpredictable behavior, so the continue button is no deactivated properly
+        //doesn't matter since the endbutton is first in order of raycast, i hope it doest glitch out in a near future
         ContinueButton.gameObject.SetActive(false);
+        if(DialogueStep != CurrentDialogues.Count-1)
+        {
+            SkipButton.gameObject.SetActive(true);
+        }
 
         //
         //In Case the player Skips the dialogue before it ends its sequence, try to stop the past audio and the letter animations//
@@ -97,14 +108,21 @@ public class DialogueHandler: MonoBehaviour
         {
             Debug.Log("Audio To Stop Was Not Found");
         }
-        StartCoroutine(HoldButton());
+        if (DialogueStep != CurrentDialogues.Count) {
+            StartCoroutine(HoldButton(ContinueButton));
+            }
+        else
+        {
+            StartCoroutine(HoldButton(EndDialogueButton));
+            SkipButton.gameObject.SetActive(false);
+        }
 
 
         //Update all the variables and displays//
         MainActor.UpdateSprite(CurrentDialogues[DialogueStep].MainActorSprite);
         if (SecondaryActor != null) { SecondaryActor.UpdateSprite(CurrentDialogues[DialogueStep].SecondaryActorSprite); }
         AudioHandler.Play(CurrentDialogues[DialogueStep].DialogueSoundName);
-        StartCoroutine(LetterAnimation(FormatString(CurrentDialogues[DialogueStep].DialogueText, PlayerData.Playername),DialogueText,CurrentDialogues[DialogueStep].letterSpeed));
+        letterAnim = StartCoroutine(LetterAnimation(FormatString(CurrentDialogues[DialogueStep].DialogueText, PlayerData.Playername),DialogueText,CurrentDialogues[DialogueStep].letterSpeed));
         Scenemaster.UpdateSceneTrigger(CurrentDialogues[DialogueStep].SceneTrigger);
         DialogueName.text = FormatString(CurrentDialogues[DialogueStep].SpeakerName, null);
         DialogueStep++;
@@ -112,8 +130,9 @@ public class DialogueHandler: MonoBehaviour
         //Check to see If it is the last line//
         if (DialogueStep == CurrentDialogues.Count)
         {
+            DialogueStep--;
             UpdateDialogueButton.gameObject.SetActive(false);
-            EndDialogueButton.gameObject.SetActive(true);
+            StartCoroutine(HoldButton(EndDialogueButton));
             ContinueButton.gameObject.SetActive(false);
             return;
         }
@@ -143,22 +162,38 @@ public class DialogueHandler: MonoBehaviour
     }
 
 
-
-
-    IEnumerator HoldButton()
+    public void SkipDialogueLine()
     {
-        if (DialogueStep == CurrentDialogues.Count)
-        {
-            
-        }
-        float seconds = this.CurrentDialogueBlock.Dialogues[DialogueStep].letterSpeed * this.CurrentDialogueBlock.Dialogues[DialogueStep].DialogueText.Length + 0.1f;
-        Debug.Log(seconds);
-        yield return new WaitForSeconds(seconds);
+        StopCoroutine(letterAnim);
+
+        Debug.Log(DialogueStep);
+        SkipButton.gameObject.SetActive(false);
         ContinueButton.gameObject.SetActive(true);
-        if (DialogueStep == CurrentDialogues.Count)
+        
+        MainActor.UpdateSprite(CurrentDialogues[DialogueStep-1].MainActorSprite);
+        if (SecondaryActor != null) { SecondaryActor.UpdateSprite(CurrentDialogues[DialogueStep-1].SecondaryActorSprite);}
+        DialogueText.text = FormatString(CurrentDialogues[DialogueStep-1].DialogueText, PlayerData.Playername);
+        DialogueName.text = FormatString(CurrentDialogues[DialogueStep-1].SpeakerName, null);
+        if (DialogueStep == CurrentDialogues.Count-1)
         {
-            ContinueButton.gameObject.SetActive(false);
+            Debug.Log("End");
+            SkipButton.gameObject.SetActive(false);
+            UpdateDialogue();
+            return;
         }
+
+
+    }
+
+
+
+    IEnumerator HoldButton(Button buttonToHold)
+    {
+       
+        float seconds = this.CurrentDialogueBlock.Dialogues[DialogueStep].letterSpeed * this.CurrentDialogueBlock.Dialogues[DialogueStep].DialogueText.Length + 0.1f;
+        yield return new WaitForSeconds(seconds);
+        buttonToHold.gameObject.SetActive(true);
+        SkipButton.gameObject.SetActive(false);
     }
 
 

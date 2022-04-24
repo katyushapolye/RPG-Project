@@ -3,25 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-[CreateAssetMenu(fileName = "BlankShield", menuName = "Shield")]
-public class Shield : Item
+[CreateAssetMenu(fileName = "BlankGrimoire", menuName = "Grimoire")]
+public class Grimoire : Item
 {
-    public int Protection;
+    public int Size;
 
     public override bool EquipItem()
     {
 
 
-            if (PlayerData.EquipedShield != null)
+            if (PlayerData.EquipedGrimoire != null)
             {
                 PlayerData.RemoveItem(this);
-                PlayerData.AddItem(PlayerData.EquipedShield);
-                PlayerData.EquipedShield = this;
+                PlayerData.AddItem(PlayerData.EquipedGrimoire);
+                PlayerData.EquipedGrimoire = this;
+                PlayerData.SetMaxGrimoire(this.Size);
                 return true;
             }
             else
             {
-                PlayerData.EquipedShield = this;
+                PlayerData.EquipedGrimoire = this;
+                PlayerData.SetMaxGrimoire(this.Size);
                 PlayerData.RemoveItem(this);
                 return true;
             }
@@ -39,7 +41,7 @@ public class Shield : Item
         if (PlayerData.CheckInventorySpace() == true)
         {
             PlayerData.AddItem(this);
-            PlayerData.EquipedShield = null;
+            PlayerData.EquipedGrimoire = null;
             return true;
 
         }

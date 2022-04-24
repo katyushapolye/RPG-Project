@@ -35,11 +35,11 @@ public class EquipamentSlot : MonoBehaviour
         switch (Correspondent)
         {
             case CorrespondentItem.Weapon:
-                EquipedItem = PlayerData.EquipedWeapon;
+                EquipedItem = PlayerData.EquipedCatalyst;
                 break;
             case CorrespondentItem.Shield:
-                EquipedItem = PlayerData.EquipedShield;
-                ItemMainAttribute.text = "PRT";
+                EquipedItem = PlayerData.EquipedGrimoire;
+                ItemMainAttribute.text = "SIZE";
                 break;
             case CorrespondentItem.UpperArmour:
                 EquipedItem = PlayerData.EquipedUpperArmour;
@@ -66,17 +66,17 @@ public class EquipamentSlot : MonoBehaviour
 
         switch (ReturnNonNullItemName(ref EquipedItem))
         {
-            case "Weapon":
-                Weapon weapon = (Weapon)EquipedItem;
+            case "Catalyst":
+                Catalyst weapon = (Catalyst)EquipedItem;
                 ItemName.text = weapon.getName();
                 ItemMainAttribute.text = "DMG";
                 ItemMainAttributeValue.text = weapon.Damage.ToString();
                 break;
-            case "Shield":
-                Shield shield = (Shield)EquipedItem;
+            case "Grimoire":
+                Grimoire shield = (Grimoire)EquipedItem;
                 ItemName.text = shield.getName();
-                ItemMainAttribute.text = "PTC";
-                ItemMainAttributeValue.text = shield.Protection.ToString();
+                ItemMainAttribute.text = "PAG";
+                ItemMainAttributeValue.text = shield.Size.ToString();
                 break;
             case "UpperArmour":
                 UpperArmour upperarmour = (UpperArmour)EquipedItem; //Downgrade is lowkey kinda useful

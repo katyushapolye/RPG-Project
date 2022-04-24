@@ -4,17 +4,16 @@ using UnityEngine;
 
 [System.Serializable]
 [CreateAssetMenu(fileName = "BlankWeapon", menuName = "Weapon")]
-public class Weapon : Item
+public class Catalyst : Item
 {
-    public int Damage;
+    public int Damage; //more a multiplier than actual damage for the catalyst, like dark souls maybe (magic augmentation stats)
     // Make a magical dmg
     public DamageType Damagetype;
-
     public enum DamageType
     {
-        CUT,
-        BLT,
-        PRC,
+        ELEM,
+        LIGHT,
+        DARK,
 
     }
 
@@ -23,16 +22,16 @@ public class Weapon : Item
     
         if (base.EquipItem() == true)
         {
-            if (PlayerData.EquipedWeapon != null)
+            if (PlayerData.EquipedCatalyst != null)
             {
-                PlayerData.AddItem(PlayerData.EquipedWeapon);
-                PlayerData.EquipedWeapon = this;
+                PlayerData.AddItem(PlayerData.EquipedCatalyst);
+                PlayerData.EquipedCatalyst = this;
                 PlayerData.RemoveItem(this);
                 return true;
             }
             else
             {
-                PlayerData.EquipedWeapon = this;
+                PlayerData.EquipedCatalyst = this;
                 PlayerData.RemoveItem(this);
                 return true;
             }
@@ -43,8 +42,8 @@ public class Weapon : Item
         else
         {
             PlayerData.RemoveItem(this);
-            PlayerData.AddItem(PlayerData.EquipedWeapon);
-            PlayerData.EquipedWeapon = this;
+            PlayerData.AddItem(PlayerData.EquipedCatalyst);
+            PlayerData.EquipedCatalyst = this;
             return true;
         }
 
@@ -56,7 +55,7 @@ public class Weapon : Item
         if (PlayerData.CheckInventorySpace() == true)
         {
             PlayerData.AddItem(this);
-            PlayerData.EquipedWeapon = null;
+            PlayerData.EquipedCatalyst = null;
             return true;
 
         }

@@ -16,6 +16,7 @@ MonoBehaviour:
   ItemDescription: My trusty Pen
   IsEquipable: 1
   IsConsumable: 0
+  IsJunk: 0
   Sprite: {fileID: 21300000, guid: 7e8ecc643c023a447bd99bc45027a86c, type: 3}
   Damage: 1
-  Damagetype: 2
+  Damagetype: 0

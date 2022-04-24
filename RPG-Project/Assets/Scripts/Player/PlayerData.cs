@@ -35,7 +35,7 @@ public static class PlayerData
     public enum Specialization
     {
         None,
-        Melee,
+        Melee, //change later, not fit for game - Overwhelming Firepower, Concentrated Firepower, Exaustive Firepower, Balanced;
         Ranged,
         Magic,
         
@@ -57,8 +57,8 @@ public static class PlayerData
 
 
     //We could save some logic using gets and sets, and maybe we should, the equiped weapon and shield is temporary, only magic combat, will substiture for grimoire and/or catalyst or other 
-    public static Weapon EquipedWeapon;
-    public static Shield EquipedShield;
+    public static Catalyst EquipedCatalyst;
+    public static Grimoire EquipedGrimoire;
     public static UpperArmour EquipedUpperArmour;
     public static LowerArmour EquipedLowerArmour;
     public static Backpack EquipedBackpack;
@@ -72,6 +72,7 @@ public static class PlayerData
     //Save Flags -> Only one for now
 
     static private bool combatFlag = false;
+
 
 
 
@@ -162,6 +163,8 @@ public static class PlayerData
 
 
     public static void SetCombatFlag(bool state) { combatFlag = state; }
+
+    public static void SetMaxGrimoire(int maxGrimoire) { maxPlayerGrimoire = maxGrimoire;}
    
     
     //Functions Here only make simple things such as removing and adding itens to the Inventory --> UI IS HANDLED ON ITEMSLOT and EQUIPAMENTSLOT

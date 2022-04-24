@@ -30,6 +30,11 @@ public class Item : ScriptableObject
     public bool isConsumable() { return this.IsConsumable; }
 
     public bool isJunk() { return this.IsJunk; }
+
+    public Item toItem()
+    {
+        return this;
+    }
    
 
 

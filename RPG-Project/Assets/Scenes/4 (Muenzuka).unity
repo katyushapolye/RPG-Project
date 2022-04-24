@@ -4276,10 +4276,10 @@ MonoBehaviour:
   TransitionHandler: {fileID: 0}
   IntroDialogueBlock:
     DialogueBlockName: Intro
-    EndDialogueTrigger: DialogueCompleted
+    EndDialogueTrigger: DialogueCompleted,UpdateUI
     Dialogues:
     - SpeakerName: My Thoughts
-      letterSpeed: 0.2
+      letterSpeed: 0.6
       DialogueText: .........
       MainActorSprite: {fileID: 0}
       SecondaryActorSprite: {fileID: 0}
@@ -4314,7 +4314,7 @@ MonoBehaviour:
       SceneTrigger: 
       DialogueSoundName: 
     - SpeakerName: My Thoughts
-      letterSpeed: 0.1
+      letterSpeed: 0.2
       DialogueText: .........
       MainActorSprite: {fileID: 0}
       SecondaryActorSprite: {fileID: 0}
@@ -4511,18 +4511,13 @@ MonoBehaviour:
       DialogueSoundName: 
     MainActor: {fileID: 1251450531}
     SecondaryActor: {fileID: 0}
-  InitialWeapon: {fileID: 11400000, guid: 364ee6500e4f2c847be762ce13d1d4fa, type: 2}
-  InitialShield: {fileID: 0}
   InitialUpper: {fileID: 11400000, guid: 59ed1fcccb758874c86e4c9abcb152af, type: 2}
   InitialLower: {fileID: 11400000, guid: d474651a2bdc39e48a70448fd87942ac, type: 2}
   InitialJunk: {fileID: 11400000, guid: 1958dd9f0f317ef4386eefdb803fb993, type: 2}
   InitialConsumable: {fileID: 11400000, guid: 59050827244dfda41b006f1f1616277c, type: 2}
   InitialBag: {fileID: 11400000, guid: 67b64f49b0e14ab4c94110f6947c240a, type: 2}
-  InitialBag2: {fileID: 11400000, guid: 2c970fe25dad9444eb8e881b14f94f08, type: 2}
-  InitialSpellcard: {fileID: 11400000, guid: a2d0e576c4a9b28469a3d94e31ec7b4a, type: 2}
-  InitialSpellcard2: {fileID: 11400000, guid: 6d28729195bddc242b15c3879be3b508, type: 2}
-  InitialSpellcard3: {fileID: 11400000, guid: 739517a392a42b2479748d0bc213c7ab, type: 2}
-  InitialSpellcard4: {fileID: 11400000, guid: ad7a82c74fb181b4d9306d7c23d19fc7, type: 2}
+  InitialGrimoire: {fileID: 11400000, guid: 9c2cc3438b5269d49823c7fed1f383df, type: 2}
+  InitalCellphone: {fileID: 11400000, guid: 6338629e93e0b1049a0c9837618a8028, type: 2}
   Komachi: {fileID: 1251450531}
   BG: {fileID: 85395731}
   combatArenaMuenzuka: {fileID: 21300000, guid: b5daafa358c549b49ad0343a217ed598,
@@ -9148,7 +9143,7 @@ PrefabInstance:
     - target: {fileID: 3558233532723859409, guid: dde92dfcc2880c4449955f00de21ccdb,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3558233533388245007, guid: dde92dfcc2880c4449955f00de21ccdb,
         type: 3}
@@ -10882,15 +10877,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d1acb8aa1fb42d8429c88d2c1100a638, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6, y: 8.54}
+  m_Size: {x: 7.66, y: 12.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1251450533
@@ -10901,7 +10896,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1251450531}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.77, y: -1.168, z: 0}
+  m_LocalPosition: {x: -6.97, y: -1.47, z: 0}
   m_LocalScale: {x: 0.7548756, y: 0.8772457, z: 1}
   m_Children: []
   m_Father: {fileID: 2085609438}
@@ -10943,8 +10938,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6, y: 8.54}
-    newSize: {x: 6, y: 8.54}
+    oldSize: {x: 2.94, y: 8.54}
+    newSize: {x: 2.94, y: 8.54}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

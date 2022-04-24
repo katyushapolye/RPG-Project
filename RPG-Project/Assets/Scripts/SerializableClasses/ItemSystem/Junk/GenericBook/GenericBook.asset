@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GenericBook
   m_EditorClassIdentifier: 
   Itemname: Generic Book
-  ItemDescription: An Ordinary book, maybe some ordinary magician have an use for
+  ItemDescription: An Ordinary book, maybe some ordinary magician has an use for
     it.
   IsEquipable: 0
   IsConsumable: 0
