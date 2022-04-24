@@ -23,6 +23,7 @@ public class DialogueHandler: MonoBehaviour
     private NPCMaster MainActor;
     private NPCMaster SecondaryActor;
     private AudioHandler AudioHandler;
+    [SerializeField] protected Button ContinueButton;
 
     //Unique Temporary Variables//
     public DialogueBlock CurrentDialogueBlock;
@@ -62,9 +63,9 @@ public class DialogueHandler: MonoBehaviour
         DialogueBox.SetActive(true);
         MainActor.UpdateSprite(CurrentDialogues[0].MainActorSprite);
         if (SecondaryActor != null) { SecondaryActor.UpdateSprite(CurrentDialogues[0].SecondaryActorSprite); }
-        DialogueName.text = CurrentDialogues[0].SpeakerName;
+        DialogueName.text = FormatString(CurrentDialogues[0].SpeakerName,null);
         Scenemaster.UpdateSceneTrigger(CurrentDialogues[0].SceneTrigger);
-        StartCoroutine(LetterAnimation(FormatString(CurrentDialogues[0].DialogueText,PlayerData.Playername),DialogueText));
+        StartCoroutine(LetterAnimation(FormatString(CurrentDialogues[0].DialogueText,PlayerData.Playername),DialogueText, CurrentDialogues[DialogueStep-1].letterSpeed));
         AudioHandler.Play(CurrentDialogues[0].DialogueSoundName);
         UpdateDialogueButton.gameObject.SetActive(true);
 
@@ -93,14 +94,15 @@ public class DialogueHandler: MonoBehaviour
         {
             Debug.Log("Audio To Stop Was Not Found");
         }
+        
 
         //Update all the variables and displays//
         MainActor.UpdateSprite(CurrentDialogues[DialogueStep].MainActorSprite);
         if (SecondaryActor != null) { SecondaryActor.UpdateSprite(CurrentDialogues[DialogueStep].SecondaryActorSprite); }
         AudioHandler.Play(CurrentDialogues[DialogueStep].DialogueSoundName);
-        StartCoroutine(LetterAnimation(FormatString(CurrentDialogues[DialogueStep].DialogueText,PlayerData.Playername),DialogueText));
+        StartCoroutine(LetterAnimation(FormatString(CurrentDialogues[DialogueStep].DialogueText, PlayerData.Playername),DialogueText,CurrentDialogues[DialogueStep].letterSpeed));
         Scenemaster.UpdateSceneTrigger(CurrentDialogues[DialogueStep].SceneTrigger);
-        DialogueName.text = CurrentDialogues[DialogueStep].SpeakerName;
+        DialogueName.text = FormatString(CurrentDialogues[DialogueStep].SpeakerName, null);
         DialogueStep++;
 
         //Check to see If it is the last line//
@@ -153,32 +155,36 @@ public class DialogueHandler: MonoBehaviour
     }
 
 
-
+    //despite my best efforts, because of the letter animation i couldn't do a italic option..
     private string FormatString(string texttoformat, string texttoput )
     {
-        try
-        {
-            return string.Format(texttoformat, PlayerData.Playername);
-        }
-        catch (System.Exception)
-        {
+            try
+            {
+                return string.Format(texttoformat, PlayerData.Playername);
+            }
+            catch (System.Exception)
+            {
 
-            return texttoformat;
-        }
+                return texttoformat;
+            }
+     }
+       
         
-    }
+    
 
 
-
-    IEnumerator LetterAnimation(string TextToAnimate,Text WhereToPut)
+    
+    IEnumerator LetterAnimation(string TextToAnimate,Text WhereToPut,float letterSpeed)
     {
         WhereToPut.text = "";
         foreach (char letter in TextToAnimate.ToCharArray())
         {
             WhereToPut.text += letter;
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSeconds(letterSpeed);
         }
     }
+    
+
 
 
 

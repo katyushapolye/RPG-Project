@@ -565,6 +565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 85395732}
   - component: {fileID: 85395733}
+  - component: {fileID: 85395734}
   m_Layer: 8
   m_Name: BG
   m_TagString: Untagged
@@ -636,6 +637,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &85395734
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85395731}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c533c4c415844784890a8ded9a773ff9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &103984684
 GameObject:
   m_ObjectHideFlags: 0
@@ -4255,24 +4275,240 @@ MonoBehaviour:
   UIMasterVar: {fileID: 0}
   TransitionHandler: {fileID: 0}
   IntroDialogueBlock:
-    DialogueBlockName: 
-    EndDialogueTrigger: 
+    DialogueBlockName: Intro
+    EndDialogueTrigger: DialogueCompleted
     Dialogues:
-    - SpeakerName: ????
-      DialogueText: Hmmm, where Am I?
-      MainActorSprite: {fileID: 21300000, guid: 0e153c786f99ab64e93196a7fd3614cc,
+    - SpeakerName: My Thoughts
+      letterSpeed: 0.2
+      DialogueText: .........
+      MainActorSprite: {fileID: 0}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: 
+      DialogueSoundName: Footsteps
+    - SpeakerName: My Thoughts
+      letterSpeed: 0.2
+      DialogueText: .........
+      MainActorSprite: {fileID: 0}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: 
+      DialogueSoundName: Footsteps
+    - SpeakerName: My Thoughts
+      letterSpeed: 0.2
+      DialogueText: .........
+      MainActorSprite: {fileID: 0}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: 
+      DialogueSoundName: Footsteps
+    - SpeakerName: My Thoughts
+      letterSpeed: 0.04
+      DialogueText: Well, I think I'm lost...
+      MainActorSprite: {fileID: 0}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: 
+      DialogueSoundName: 
+    - SpeakerName: My Thoughts
+      letterSpeed: 0.04
+      DialogueText: I should just keep walking for now, it's not like I have a choice...
+      MainActorSprite: {fileID: 0}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: 
+      DialogueSoundName: 
+    - SpeakerName: My Thoughts
+      letterSpeed: 0.1
+      DialogueText: .........
+      MainActorSprite: {fileID: 0}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: FadeIn
+      DialogueSoundName: 
+    - SpeakerName: My Thoughts
+      letterSpeed: 0.2
+      DialogueText: .........
+      MainActorSprite: {fileID: 0}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: FadeOut
+      DialogueSoundName: Footsteps
+    - SpeakerName: My Thoughts
+      letterSpeed: 0.2
+      DialogueText: .........
+      MainActorSprite: {fileID: 0}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: 
+      DialogueSoundName: Footsteps
+    - SpeakerName: Player
+      letterSpeed: 0.04
+      DialogueText: How exactly I got lost? I was just with my class a couple of
+        minutes ago...
+      MainActorSprite: {fileID: 0}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: 
+      DialogueSoundName: 
+    - SpeakerName: ----------------------
+      letterSpeed: 0.04
+      DialogueText: "The cold wind shook the purple cherry trees, although the forest
+        seemed very rich, a \r\neerie feeling was always present as you looked around."
+      MainActorSprite: {fileID: 0}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: 
+      DialogueSoundName: 
+    - SpeakerName: My Thoughts
+      letterSpeed: 0.04
+      DialogueText: I've got no signal on my phone and I'm getting hungry, I shou--!
+      MainActorSprite: {fileID: 0}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: 
+      DialogueSoundName: 
+    - SpeakerName: ---------------------
+      letterSpeed: 0.04
+      DialogueText: Before you could finish your thoughts, you notice a strange girl
+        distracted and leaning on a nearby tree
+      MainActorSprite: {fileID: 21300000, guid: d1acb8aa1fb42d8429c88d2c1100a638,
+        type: 3}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: FadeKomachiIn
+      DialogueSoundName: 
+    - SpeakerName: ---------------------
+      letterSpeed: 0.04
+      DialogueText: The girl had a big scythe and a blue and white dress, she was
+        around your height, but seemmed taller because of the traditional heels
+      MainActorSprite: {fileID: 21300000, guid: d1acb8aa1fb42d8429c88d2c1100a638,
         type: 3}
       SecondaryActorSprite: {fileID: 0}
       SceneTrigger: 
       DialogueSoundName: 
-    - SpeakerName: Komachi
-      DialogueText: Oh, Here I am. Hey There {0}!  We now have some fully-functional
-        dialogue system, but that's not all...
-      MainActorSprite: {fileID: 21300000, guid: becbb8c6d71b24f43afdd89c78a316ca,
+    - SpeakerName: ---------------------
+      letterSpeed: 0.04
+      DialogueText: Although she was menacing, you had no choice but to ask her for
+        help.
+      MainActorSprite: {fileID: 21300000, guid: d1acb8aa1fb42d8429c88d2c1100a638,
         type: 3}
       SecondaryActorSprite: {fileID: 0}
-      SceneTrigger: FadeKomachiIn
-      DialogueSoundName: Hello
+      SceneTrigger: 
+      DialogueSoundName: 
+    - SpeakerName: Player
+      letterSpeed: 0.02
+      DialogueText: ...
+      MainActorSprite: {fileID: 21300000, guid: d1acb8aa1fb42d8429c88d2c1100a638,
+        type: 3}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: 
+      DialogueSoundName: 
+    - SpeakerName: Player
+      letterSpeed: 0.02
+      DialogueText: He-!
+      MainActorSprite: {fileID: 21300000, guid: d1acb8aa1fb42d8429c88d2c1100a638,
+        type: 3}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: 
+      DialogueSoundName: BreakBranch
+    - SpeakerName: ---------------------
+      letterSpeed: 0.04
+      DialogueText: As you aproached the strange woman, you accidently stepped on
+        a nearby branch, scaring the almost sleeping girl.
+      MainActorSprite: {fileID: 21300000, guid: d1acb8aa1fb42d8429c88d2c1100a638,
+        type: 3}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: 
+      DialogueSoundName: 
+    - SpeakerName: ?????????????
+      letterSpeed: 0.04
+      DialogueText: '!!!'
+      MainActorSprite: {fileID: 21300000, guid: 117697a8aff05304d9f389d14d41d462,
+        type: 3}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: SurpriseKomachi
+      DialogueSoundName: 
+    - SpeakerName: Player
+      letterSpeed: 0.04
+      DialogueText: Oh I'm sorry, I didn't mean to startle you...
+      MainActorSprite: {fileID: 21300000, guid: 117697a8aff05304d9f389d14d41d462,
+        type: 3}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: 
+      DialogueSoundName: 
+    - SpeakerName: ?????????????
+      letterSpeed: 0.04
+      DialogueText: I- I'm not slacking off I Swear please don't te-!
+      MainActorSprite: {fileID: 21300000, guid: f7d3927ae48e7c249b42358866bce573,
+        type: 3}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: 
+      DialogueSoundName: 
+    - SpeakerName: ?????????????
+      letterSpeed: 0.04
+      DialogueText: Oh... I see...
+      MainActorSprite: {fileID: 21300000, guid: 0c536e026e0cadc4e9744e9fe21450b5,
+        type: 3}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: 
+      DialogueSoundName: 
+    - SpeakerName: My Thoughts
+      letterSpeed: 0.04
+      DialogueText: ???
+      MainActorSprite: {fileID: 21300000, guid: 0c536e026e0cadc4e9744e9fe21450b5,
+        type: 3}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: 
+      DialogueSoundName: 
+    - SpeakerName: ---------------------
+      letterSpeed: 0.04
+      DialogueText: You notice that she is looking at your cellphone, and you can't
+        seem to have a clue to what she is thinking with that expression.
+      MainActorSprite: {fileID: 21300000, guid: 0c536e026e0cadc4e9744e9fe21450b5,
+        type: 3}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: 
+      DialogueSoundName: 
+    - SpeakerName: My Thoughts
+      letterSpeed: 0.04
+      DialogueText: Kinda weird for a girl in cosplay to be here, but at least that
+        is a good sign, maybe a convention is happening nearby.
+      MainActorSprite: {fileID: 21300000, guid: 0c536e026e0cadc4e9744e9fe21450b5,
+        type: 3}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: 
+      DialogueSoundName: 
+    - SpeakerName: ?????????????
+      letterSpeed: 0.04
+      DialogueText: Well, anyway, I'm going now, if I were you I wouldn't stay around,
+        this is no place for a mere human to be.
+      MainActorSprite: {fileID: 21300000, guid: 6058b0a3ea0603c40900bf65c38d6568,
+        type: 3}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: 
+      DialogueSoundName: 
+    - SpeakerName: Player
+      letterSpeed: 0.04
+      DialogueText: What do you mean mere human?, Listen, I got lo-! Hey, Hey come
+        back here!
+      MainActorSprite: {fileID: 21300000, guid: 6058b0a3ea0603c40900bf65c38d6568,
+        type: 3}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: FadeKomachiOut
+      DialogueSoundName: 
+    - SpeakerName: ---------------------
+      letterSpeed: 0.04
+      DialogueText: Before you could finish what you were saying, the oddly dressed
+        girl started running away
+      MainActorSprite: {fileID: 0}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: 
+      DialogueSoundName: 
+    - SpeakerName: ---------------------
+      letterSpeed: 0.04
+      DialogueText: Strangely, the speed she ran was so unatural, that it was almost
+        as she was shortening the path in front of her...
+      MainActorSprite: {fileID: 0}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: 
+      DialogueSoundName: 
+    - SpeakerName: My Thoughts
+      letterSpeed: 0.04
+      DialogueText: Well Fuck, The only thing I needed was a girl with some screws
+        lose, what now?
+      MainActorSprite: {fileID: 0}
+      SecondaryActorSprite: {fileID: 0}
+      SceneTrigger: 
+      DialogueSoundName: 
     MainActor: {fileID: 1251450531}
     SecondaryActor: {fileID: 0}
   InitialWeapon: {fileID: 11400000, guid: 364ee6500e4f2c847be762ce13d1d4fa, type: 2}
@@ -4288,6 +4524,7 @@ MonoBehaviour:
   InitialSpellcard3: {fileID: 11400000, guid: 739517a392a42b2479748d0bc213c7ab, type: 2}
   InitialSpellcard4: {fileID: 11400000, guid: ad7a82c74fb181b4d9306d7c23d19fc7, type: 2}
   Komachi: {fileID: 1251450531}
+  BG: {fileID: 85395731}
   combatArenaMuenzuka: {fileID: 21300000, guid: b5daafa358c549b49ad0343a217ed598,
     type: 3}
   dummyEnemy: {fileID: 11400000, guid: ee5fd7a61275802419f1063af1f5c636, type: 2}
@@ -4325,7 +4562,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1280, y: 720}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.5
+  m_MatchWidthOrHeight: 0.341
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -8911,7 +9148,7 @@ PrefabInstance:
     - target: {fileID: 3558233532723859409, guid: dde92dfcc2880c4449955f00de21ccdb,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3558233533388245007, guid: dde92dfcc2880c4449955f00de21ccdb,
         type: 3}
@@ -10605,7 +10842,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1251450532
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10645,12 +10882,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 35406e2c69213e14fa8a9e5b6cdf7bd2, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Sprite: {fileID: 21300000, guid: d1acb8aa1fb42d8429c88d2c1100a638, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.03, y: 8}
+  m_Size: {x: 6, y: 8.54}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -10664,8 +10901,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1251450531}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.82, y: -1.33, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -6.77, y: -1.168, z: 0}
+  m_LocalScale: {x: 0.7548756, y: 0.8772457, z: 1}
   m_Children: []
   m_Father: {fileID: 2085609438}
   m_RootOrder: 1
@@ -10702,18 +10939,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.36339617}
+  m_Offset: {x: 0.034083128, y: -0.107509136}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.03, y: 8}
-    newSize: {x: 3.03, y: 8}
+    oldSize: {x: 6, y: 8.54}
+    newSize: {x: 6, y: 8.54}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.03, y: 7.2732077}
+  m_Size: {x: 7.4619555, y: 12.078454}
   m_EdgeRadius: 0
 --- !u!114 &1251450536
 MonoBehaviour:
@@ -10728,12 +10965,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCColider: {fileID: 1251450535}
-  NPCDefaultSprite: {fileID: 21300000, guid: 7108574acc16ee04f8f665988efdfb6b, type: 3}
+  NPCDefaultSprite: {fileID: 21300000, guid: 6058b0a3ea0603c40900bf65c38d6568, type: 3}
   KomachiDialogueIdle:
     DialogueBlockName: KomachiIdleDialogue
     EndDialogueTrigger: 
     Dialogues:
     - SpeakerName: Komachi
+      letterSpeed: 0
       DialogueText: You can keep clicking on me, but nothing will change...
       MainActorSprite: {fileID: 21300000, guid: e481401a6dd62be458c6a994ae25176c,
         type: 3}
@@ -10741,6 +10979,7 @@ MonoBehaviour:
       SceneTrigger: 
       DialogueSoundName: Bye
     - SpeakerName: Komachi
+      letterSpeed: 0
       DialogueText: Actually, things will change now!
       MainActorSprite: {fileID: 21300000, guid: b176e6e905ccb974d8bdf04009c404f0,
         type: 3}
@@ -10748,6 +10987,7 @@ MonoBehaviour:
       SceneTrigger: 
       DialogueSoundName: 
     - SpeakerName: Komachi
+      letterSpeed: 0
       DialogueText: We have a new EXP and Leveling system, so, each time you complete
         this whole dialogue, you will win 225 EXP, neat isn't it?
       MainActorSprite: {fileID: 21300000, guid: 7108574acc16ee04f8f665988efdfb6b,
@@ -10756,6 +10996,7 @@ MonoBehaviour:
       SceneTrigger: HealthLose
       DialogueSoundName: 
     - SpeakerName: Komachi
+      letterSpeed: 0
       DialogueText: You will also lose 55 HP, but you should be able to get that
         back by eating that chocolate of yours in your bag
       MainActorSprite: {fileID: 21300000, guid: becbb8c6d71b24f43afdd89c78a316ca,
@@ -10764,6 +11005,7 @@ MonoBehaviour:
       SceneTrigger: 
       DialogueSoundName: 
     - SpeakerName: Komachi
+      letterSpeed: 0
       DialogueText: Things are changing fast, maybe next time we talk, there will
         be decisions, or maybe even combat...
       MainActorSprite: {fileID: 21300000, guid: 7b1b882dc5229f74384a5abc099a614b,
@@ -10772,6 +11014,7 @@ MonoBehaviour:
       SceneTrigger: 
       DialogueSoundName: 
     - SpeakerName: Komachi
+      letterSpeed: 0
       DialogueText: ' Or maybe even a way of me to remember I just told you all of
         that...'
       MainActorSprite: {fileID: 21300000, guid: becbb8c6d71b24f43afdd89c78a316ca,
@@ -10786,15 +11029,17 @@ MonoBehaviour:
     EndDialogueTrigger: CombatStart
     Dialogues:
     - SpeakerName: Komachi
+      letterSpeed: 0.04
       DialogueText: Well, I supose we should start the combat simulation...
-      MainActorSprite: {fileID: 21300000, guid: e481401a6dd62be458c6a994ae25176c,
+      MainActorSprite: {fileID: 21300000, guid: 6058b0a3ea0603c40900bf65c38d6568,
         type: 3}
       SecondaryActorSprite: {fileID: 0}
       SceneTrigger: 
       DialogueSoundName: 
     - SpeakerName: Komachi
-      DialogueText: Good Luck, and try not to kill yourself!
-      MainActorSprite: {fileID: 21300000, guid: b3e43961411454743b2b4a121418bbac,
+      letterSpeed: 0.04
+      DialogueText: Heh... Good Luck, and try not to kill yourself!
+      MainActorSprite: {fileID: 21300000, guid: 0c536e026e0cadc4e9744e9fe21450b5,
         type: 3}
       SecondaryActorSprite: {fileID: 0}
       SceneTrigger: 
@@ -15683,6 +15928,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 2629148934057709363, guid: d84d4d3138c2e5c47a92986f4d609b03,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7596393657213299697, guid: d84d4d3138c2e5c47a92986f4d609b03,
         type: 3}
       propertyPath: Audios.Array.size
@@ -15778,6 +16028,26 @@ PrefabInstance:
       propertyPath: Audios.Array.data[4].AudioClip
       value: 
       objectReference: {fileID: 8300000, guid: ec4c88dc65231734bb6b75a49a3c7eaa, type: 3}
+    - target: {fileID: 7596393657213299697, guid: d84d4d3138c2e5c47a92986f4d609b03,
+        type: 3}
+      propertyPath: Audios.Array.data[5].Name
+      value: Footsteps
+      objectReference: {fileID: 0}
+    - target: {fileID: 7596393657213299697, guid: d84d4d3138c2e5c47a92986f4d609b03,
+        type: 3}
+      propertyPath: Audios.Array.data[5].AudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 631d1ddac94831c449763bed633d339e, type: 3}
+    - target: {fileID: 7596393657213299697, guid: d84d4d3138c2e5c47a92986f4d609b03,
+        type: 3}
+      propertyPath: Audios.Array.data[6].Name
+      value: BreakBranch
+      objectReference: {fileID: 0}
+    - target: {fileID: 7596393657213299697, guid: d84d4d3138c2e5c47a92986f4d609b03,
+        type: 3}
+      propertyPath: Audios.Array.data[6].AudioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e266da7f180338748980df9f15e51000, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d84d4d3138c2e5c47a92986f4d609b03, type: 3}
 --- !u!4 &1911809399 stripped
@@ -17856,6 +18126,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1709328958}
     m_Modifications:
+    - target: {fileID: 382882285763827122, guid: bc54785fa466d1543b0bbcf3d904a710,
+        type: 3}
+      propertyPath: m_FontData.m_RichText
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 382882286212255754, guid: bc54785fa466d1543b0bbcf3d904a710,
         type: 3}
       propertyPath: m_Camera
@@ -17865,6 +18140,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DialogueHandler
+      objectReference: {fileID: 0}
+    - target: {fileID: 382882286592875364, guid: bc54785fa466d1543b0bbcf3d904a710,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 382882286592875365, guid: bc54785fa466d1543b0bbcf3d904a710,
         type: 3}
@@ -17929,7 +18209,7 @@ PrefabInstance:
     - target: {fileID: 382882286709614683, guid: bc54785fa466d1543b0bbcf3d904a710,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -322.09982
+      value: -322.09985
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc54785fa466d1543b0bbcf3d904a710, type: 3}

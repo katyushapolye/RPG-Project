@@ -21,6 +21,12 @@ public class KomachiMaster : NPCMaster
         Activate(NPCDefaultSprite);
    
     }
+    public override void Deactivate()
+    {
+        this.GetComponent<Animator>().SetTrigger("FadeOut");
+        
+
+    }
 
     //Might Scrape later
     public void KomachiLoad()

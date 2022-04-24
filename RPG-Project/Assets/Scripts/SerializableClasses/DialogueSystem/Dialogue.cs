@@ -6,6 +6,7 @@ using UnityEngine;
 public class Dialogue
 {
     public string SpeakerName;
+    public float letterSpeed;
     [TextArea(3,4)]
     public string DialogueText;
     public Sprite MainActorSprite;

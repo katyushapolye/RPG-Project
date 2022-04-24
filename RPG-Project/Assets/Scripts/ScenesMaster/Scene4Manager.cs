@@ -19,7 +19,8 @@ public class Scene4Manager : SceneMaster
     public SpellCard InitialSpellcard3;
     public SpellCard InitialSpellcard4;
 
-    public GameObject Komachi;
+    [SerializeField] protected GameObject Komachi;
+    [SerializeField] protected GameObject BG;
 
     public Sprite combatArenaMuenzuka;
     public Enemy dummyEnemy;
@@ -68,43 +69,70 @@ public class Scene4Manager : SceneMaster
         string[] Triggers = SceneTrigger.Split(',') ;
         foreach(string s in Triggers)
         {
+            switch (s)
+            {
+                case "HealthLose":
+                    PlayerData.CurrentHealth -= 55;
+                    PlayerData.AddXP(225);
+                    FindObjectOfType<UIMaster>().UpdateUIAnim();
+                    break;
+
+                case "UpdateUI":
+                    FindObjectOfType<UIMaster>().UpdateUIAnim();
+                    break;
+
+                case "FadeKomachiIn":
+                    Debug.Log("Komachi FadeIn");
+                    Komachi.GetComponent<Animator>().SetTrigger("FadeIn");
+                    break;
+                case "DialogueCompleted":
+                    Debug.Log("Dialogue Completed");
+                    Komachi.GetComponent<NPCMaster>().Activate(Komachi.GetComponent<NPCMaster>().NPCDefaultSprite);
+                    PlayerData.SetCombatFlag(true);
+                    break;
+
+                case "CombatStart":
+                    Debug.Log("CombatStart");
+                    CombatData.loadCombatData(combatArenaMuenzuka, dummyEnemy);
+                    TransitionHandler.LoadCombatLevel();
+                    break;
+
+                case "FadeIn":
+                    BG.GetComponent<Animator>().SetTrigger("FadeIn");
+                    break;
+                case "FadeOut":
+                    BG.GetComponent<Animator>().SetTrigger("FadeOut");
+
+                    break;
+
+                case "SurpriseKomachi":
+                    Debug.Log("Komachi Surprised");
+                    Komachi.GetComponent<Animator>().SetTrigger("KomachiSurprised");
+                    break;
+
+                case "FadeKomachiOut":
+                    Komachi.GetComponent<NPCMaster>().Deactivate();
+                    break;
+
+
+                default:
+                    if(s == "")
+                    {
+                        break;
+                    }
+                    Debug.Log("Trigger Not Found!!");
+                    break;
+            }
             //change to switch if gets bigger than 4 triggers
-            if (SceneTrigger == "HealthLose")
-            {
-                //Do as such that, it exist a function that calls on playerdata for this kind of alteration;
-                PlayerData.CurrentHealth -= 55;
-                PlayerData.AddXP(225);
-                FindObjectOfType<UIMaster>().UpdateUIAnim();
-                continue;
-            }
-            if (SceneTrigger == "UpdateUI")
-            {
-                FindObjectOfType<UIMaster>().UpdateUIAnim();
-                continue;
-            }
-            if (SceneTrigger == "FadeKomachiIn")
-            {
-                Debug.Log("Komachi FadeIn");
-                Komachi.GetComponent<Animator>().SetTrigger("FadeIn");
-                continue;
-
-            }
-            if (SceneTrigger == "DialogueCompleted")
-            {
-                Debug.Log("Dialogue Completed");
-                PlayerData.SetCombatFlag(true);
-                continue;
-
-            }
-            if (SceneTrigger == "CombatStart")
-            {
-                Debug.Log("CombatStart");
-                CombatData.loadCombatData(combatArenaMuenzuka, dummyEnemy);
-                TransitionHandler.LoadCombatLevel();
+            
+           
+           
+           
+         
 
 
-
-            }
+            
+           
 
 
         }
