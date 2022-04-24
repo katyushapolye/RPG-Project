@@ -19,7 +19,7 @@ public class GameBootStrapScript : MonoBehaviour
     {
         
         float loading = Time.timeSinceLevelLoad;
-        if (loading > 5)
+        if (loading > 3)
         {
             TransitionHandler.NextScene(2);
         }

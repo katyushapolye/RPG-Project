@@ -8,6 +8,8 @@ public class CombatHandler : MonoBehaviour
 {
     //Debug//
     public SpellCard InitialSpellcard;
+    public Enemy InitalEnemy;
+    public Sprite InitialBG;
 
     //Gneral Vars
     private AudioHandler audioHandler;
@@ -40,9 +42,12 @@ public class CombatHandler : MonoBehaviour
 
     void Awake()
     { //Awake calls while the editor is still open so funny behaviour can happen, specially using scriptable objects
-  
-        audioHandler = FindObjectOfType<AudioHandler>();
+        //Debug
+        CombatData.loadCombatData(InitialBG, InitalEnemy);
+        PlayerData.GetGrimoire().Add(InitialSpellcard);
 
+
+        audioHandler = FindObjectOfType<AudioHandler>();
         InitializeCombatData();
         InitializeGrimoire();
         UpdateUI();
@@ -249,7 +254,8 @@ public class CombatHandler : MonoBehaviour
     //Public wrapper for UI
     public void PlayerAttack(SpellCard spell)
     {
-        PlayerAction(spell);
+        //do letter animation
+        PlayerAction(spell); //process action internally and decide enemy action
     }
 
 
@@ -277,6 +283,7 @@ public class CombatHandler : MonoBehaviour
         //Animations
         //Check for enemy Death -> Stop the combat
         CloseGrimoire();
+        EnemyAction();
         //Enemy Attack "Animation"
         //enemy action
         //Check for player death -> stop the combat
@@ -291,6 +298,7 @@ public class CombatHandler : MonoBehaviour
     }
     private void EnemyAction()
     {
+        //decide actions, push animations 
 
 
     }

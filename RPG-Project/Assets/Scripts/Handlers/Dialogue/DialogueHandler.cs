@@ -87,7 +87,7 @@ public class DialogueHandler: MonoBehaviour
 
     public void UpdateDialogue()
     {
-        Debug.Log(DialogueStep);
+
         Debug.Log(CurrentDialogueBlock.Dialogues.Count);
         //Couroutines create a sorta of unpredictable behavior, so the continue button is no deactivated properly
         //doesn't matter since the endbutton is first in order of raycast, i hope it doest glitch out in a near future
@@ -166,7 +166,7 @@ public class DialogueHandler: MonoBehaviour
     {
         StopCoroutine(letterAnim);
 
-        Debug.Log(DialogueStep);
+
         SkipButton.gameObject.SetActive(false);
         ContinueButton.gameObject.SetActive(true);
         

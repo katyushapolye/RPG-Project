@@ -70,6 +70,7 @@ public class Scene4Manager : SceneMaster
                     break;
 
                 case "UpdateUI":
+                    Debug.Log("UpdateUI");
                     FindObjectOfType<UIMaster>().UpdateUIAnim();
                     break;
 
@@ -105,6 +106,7 @@ public class Scene4Manager : SceneMaster
                     break;
 
                 case "FadeKomachiOut":
+                    Debug.Log("Komachi FadeOut");
                     Komachi.GetComponent<NPCMaster>().Deactivate();
                     break;
 
@@ -117,7 +119,6 @@ public class Scene4Manager : SceneMaster
                     Debug.Log("Trigger Not Found!!");
                     break;
             }
-            //change to switch if gets bigger than 4 triggers
             
            
            
