@@ -251,7 +251,7 @@ public class CombatHandler : MonoBehaviour
 
     //Combat Functions
 
-    //Public wrapper for UI
+    //Public wrapper for UI and letter handling
     public void PlayerAttack(SpellCard spell)
     {
         //do letter animation
