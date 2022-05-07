@@ -16,6 +16,10 @@ public class Cellphone : Item
                 return;
             }
             FindObjectOfType<Scene4Manager>().StartIntroCombatDialogue();
+            if (PlayerData.GetCurrentPlayerMainQuest() is WelcomeToTheEast)
+            {
+                PlayerData.GetCurrentPlayerMainQuest().Update();
+            }
         }
         catch (System.Exception)
         {

@@ -74,6 +74,7 @@ public static class PlayerData
     static private bool combatFlag = false; //i'm changing
 
     static private List<QuestBase> PlayertaskLog =  new List<QuestBase>();
+    static private QuestBase CurrentMainQuest;
 
 
 
@@ -160,9 +161,34 @@ public static class PlayerData
     public static bool GetCombatFlag() { return combatFlag; }
 
     //maybe we will ditch the idea of a global tasklog, maybe we can work with 2 secondary quests and always one main quest, the tasklog might be used to store past tasks.
-    public static ref List<QuestBase> GetPlayerTaskLog() //needs to be a ref because we NEED to actually change the objects inside, i dont know when c# passes by value exactly
+    public static ref List<QuestBase> GetCompletedPlayerTaskLog() //needs to be a ref because we NEED to actually change the objects inside, i dont know when c# passes by value exactly
     {
         return ref PlayertaskLog;
+    }
+
+    public static ref QuestBase GetCurrentPlayerMainQuest() 
+    { 
+        if(CurrentMainQuest == null)
+        {
+            CurrentMainQuest = new QuestBase(); //garatee we do not pass null object, and will log meaning that something went wrongm the player always needs to have a main quest
+            
+        }
+        return ref CurrentMainQuest; 
+    }
+
+    public static void SetCurrentPlayerMainQuest(QuestBase nextQuest)
+    {
+        if(CurrentMainQuest == null)
+        {
+            Debug.LogWarning("Player did not have main quest until now, Is this intended behaviour?");
+            CurrentMainQuest = nextQuest;
+
+        }
+        else
+        {
+            PlayertaskLog.Add(CurrentMainQuest);
+            CurrentMainQuest = nextQuest;
+        }
     }
 
 

@@ -80,6 +80,11 @@ public class UIMaster : MonoBehaviour
 
     //TaskUI
     [SerializeField] protected GameObject TaskLogPanel;
+    [SerializeField] protected GameObject MainTaskStepsParent;
+    [SerializeField] protected GameObject MainTaskCompletedParent;
+    [SerializeField] protected Text MainTaskName;
+    private Text[] TasksTextArray;
+    private Image[] TaskCompletedMarkingArray;
 
 
     void Awake()
@@ -87,6 +92,8 @@ public class UIMaster : MonoBehaviour
         PlayernameTextBox.text = PlayerData.Playername;
         ItemSlotArray = ItemSlotMaster.GetComponentsInChildren<ItemSlotScript>();
         EquipamentSlotArray = EquipamentSlotMaster.GetComponentsInChildren<EquipamentSlot>();
+        TasksTextArray = MainTaskStepsParent.GetComponentsInChildren<Text>();
+        TaskCompletedMarkingArray = MainTaskCompletedParent.GetComponentsInChildren<Image>();
         HealthMonitorAnimator = HealthMonitor.GetComponent<Animator>();
         WarningPanel.SetActive(false);
         UpdateUIInv();
@@ -205,9 +212,13 @@ public class UIMaster : MonoBehaviour
     public void OpenTaskLog()
     {
         if (TaskLogPanel.activeInHierarchy == true) { return; }
+
+        Debug.Log(PlayerData.GetCurrentPlayerMainQuest().getQuestDescriptionList()[PlayerData.GetCurrentPlayerMainQuest().getCurrentStep()]);
+
         CloseCharacterPanel();
         CloseStatsPanel();
         CloseInventoryPanel();
+        UpdateTaskLog();
         TaskLogPanel.SetActive(true);
 
     }
@@ -284,6 +295,34 @@ public class UIMaster : MonoBehaviour
 
         audioHandler.Play("UIUpdate");
         StartCoroutine(HoldBool(4));
+
+    }
+
+    public void UpdateTaskLog()
+    {
+        MainTaskName.text = PlayerData.GetCurrentPlayerMainQuest().getQuestName();
+        //Set completed steps with a strikethrough
+        for(int i = 0; i < PlayerData.GetCurrentPlayerMainQuest().getCurrentStep(); i++)
+        {
+            TasksTextArray[i].gameObject.SetActive(true);
+            TaskCompletedMarkingArray[i].gameObject.SetActive(true);
+
+            string format = PlayerData.GetCurrentPlayerMainQuest().getQuestDescriptionList()[i].Trim();  //cant get rich text to work with the /s tag
+            TasksTextArray[i].text = format ;
+        }
+        //for the rest
+        for (int i = PlayerData.GetCurrentPlayerMainQuest().getCurrentStep(); i < PlayerData.GetCurrentPlayerMainQuest().getQuestDescriptionList().Count; i++)
+        {
+            TaskCompletedMarkingArray[i].gameObject.SetActive(false);
+            TasksTextArray[i].gameObject.SetActive(true);
+            TasksTextArray[i].text =  PlayerData.GetCurrentPlayerMainQuest().getQuestDescriptionList()[i];
+        }
+        //disable the rest 
+        for (int i = PlayerData.GetCurrentPlayerMainQuest().getCurrentStep()+1; i < TasksTextArray.Length; i++) //may trigger problemns if on last step of quest, check later
+        {
+            TaskCompletedMarkingArray[i].gameObject.SetActive(false);
+            TasksTextArray[i].gameObject.SetActive(false);
+        }
 
     }
 

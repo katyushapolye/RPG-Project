@@ -30,6 +30,7 @@ public class TransitionHandler : MonoBehaviour
 
     public void LoadCombatLevel()
     {
+        
         StartCoroutine(LoadLevel((int)SceneMaster.Sceneindex.Combat));
     }
 
