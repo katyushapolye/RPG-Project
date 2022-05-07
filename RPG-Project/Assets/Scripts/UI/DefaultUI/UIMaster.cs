@@ -180,7 +180,8 @@ public class UIMaster : MonoBehaviour
     //leave them public in case we want to open the panels via code like in a turorial
     public void OpenInventoryPanel()
     {
-        
+
+     
         if(InventoryPanel.activeInHierarchy == true) { return; }
        UpdateUIInv();
        CloseStatsPanel();

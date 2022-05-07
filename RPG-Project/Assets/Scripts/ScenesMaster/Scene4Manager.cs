@@ -35,6 +35,8 @@ public class Scene4Manager : SceneMaster
         UIMasterVar.ToggleUI(true);
 
         //This will be handled later correctly, debug only
+        WelcomeToTheEast welcomeToTheEastQuest = new WelcomeToTheEast();
+        PlayerData.GetPlayerTaskLog().Add(welcomeToTheEastQuest);
         PlayerData.EquipedLowerArmour = (LowerArmour)InitialLower;
         PlayerData.EquipedUpperArmour = (UpperArmour)InitialUpper;
         PlayerData.AddItem(InitialJunk);
@@ -82,6 +84,7 @@ public class Scene4Manager : SceneMaster
                     Debug.Log("Dialogue Completed");
                     Komachi.GetComponent<NPCMaster>().Activate(Komachi.GetComponent<NPCMaster>().NPCDefaultSprite);
                     PlayerData.SetCombatFlag(true);
+                    
                     break;
 
                 case "CombatStart":

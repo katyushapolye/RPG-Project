@@ -71,7 +71,9 @@ public static class PlayerData
 
     //Save Flags -> Only one for now
 
-    static private bool combatFlag = false;
+    static private bool combatFlag = false; //i'm changing
+
+    static private List<QuestBase> PlayertaskLog =  new List<QuestBase>();
 
 
 
@@ -156,6 +158,12 @@ public static class PlayerData
     public static int GetHistoryLevel() { return HistoryLevel; }
 
     public static bool GetCombatFlag() { return combatFlag; }
+
+    //maybe we will ditch the idea of a global tasklog, maybe we can work with 2 secondary quests and always one main quest, the tasklog might be used to store past tasks.
+    public static ref List<QuestBase> GetPlayerTaskLog() //needs to be a ref because we NEED to actually change the objects inside, i dont know when c# passes by value exactly
+    {
+        return ref PlayertaskLog;
+    }
 
 
 
