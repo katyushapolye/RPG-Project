@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Inflation Square
   m_EditorClassIdentifier: 
   spellName: Inflation Square
-  spellDescription: A bunch of knives are thrown in random directions while the time
-    is stopped, so they just appear to have materialized.
+  spellDescription: Multiple knives are thrown in random directions while the time
+    is stopped, so they just appear to have materialized from nowhere.
   Damagetype: 0
   Modifiertype: 0
   spellClass: 1
