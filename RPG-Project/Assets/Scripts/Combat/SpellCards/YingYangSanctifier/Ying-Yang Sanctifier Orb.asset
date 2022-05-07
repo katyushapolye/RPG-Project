@@ -16,7 +16,10 @@ MonoBehaviour:
   spellDescription: Projects and throws a massiveand heavy Ying Yang Orb at the target
     in a straight line, it can't get simpler than this...
   Damagetype: 0
+  Modifiertype: 0
+  spellClass: 7
   rawDamage: 8
+  rawPercentageModifier: 0
   Size: 10
   Amount: 1
   pattern: 1

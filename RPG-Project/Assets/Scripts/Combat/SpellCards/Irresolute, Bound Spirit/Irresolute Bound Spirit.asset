@@ -16,8 +16,10 @@ MonoBehaviour:
   spellDescription: A bunch of ghosts are entwined on the target, they can quickly
     corner if they are not careful.
   Damagetype: 1
-  spellClass: 0
+  Modifiertype: 3
+  spellClass: 3
   rawDamage: 3
+  rawPercentageModifier: 0.1
   Size: 2
   Amount: 15
   pattern: 2

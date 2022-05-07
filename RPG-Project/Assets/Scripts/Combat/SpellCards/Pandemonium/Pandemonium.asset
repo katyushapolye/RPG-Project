@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Pandemonium
   m_EditorClassIdentifier: 
   spellName: Pandemonium
-  spellDescription: A circle of projectiles are created around the user and expand,
+  spellDescription: A circle of projectiles is created around the user and expand,
     the most Danmaku Danmaku there is.
   Damagetype: 0
-  spellClass: 0
+  Modifiertype: 0
+  spellClass: 1
   rawDamage: 1
+  rawPercentageModifier: 0
   Size: 1
   Amount: 40
   pattern: 3
