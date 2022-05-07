@@ -56,9 +56,9 @@ public class SpellCard: ScriptableObject {
     [TextArea(1,1)]
     public string spellDescription;
     public DamageType Damagetype;
-    
+  
     public ModifierType Modifiertype;
-    [SerializeField] private Class spellClass;
+    [SerializeField] public Class spellClass;
     public int rawDamage; //Will only be checked if card is of offensive nature
     [Range(0, 1.0f)]
     public float rawPercentageModifier; //Will only be checked if card is of buff or debuff

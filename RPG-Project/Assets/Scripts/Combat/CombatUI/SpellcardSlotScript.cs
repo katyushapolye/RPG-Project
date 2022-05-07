@@ -10,10 +10,17 @@ public class SpellcardSlotScript : MonoBehaviour
     //UI Stuff
     [SerializeField] protected Text SpellcardNameText;
     [SerializeField] protected Text SpellcardDescriptionText;
-    [SerializeField] protected Text SpellcardPatternText;
 
+    [SerializeField] protected Text SpellcardPatternText;
     [SerializeField] protected Text SpellcardDamageStaticText;
     [SerializeField] protected Text SpellcardSpellPatternStaticText;
+    [SerializeField] protected Text SpellcardClassText;
+    [SerializeField] protected Text SpellcardModifierText;
+    [SerializeField] protected Text SpellcardRawModifierPercentage;
+    [SerializeField] protected GameObject DefensivePreset;
+    [SerializeField] protected GameObject OffensivePreset;
+
+
 
     public Button spellButton;
 
@@ -48,9 +55,13 @@ public class SpellcardSlotScript : MonoBehaviour
     {
         if (spellCard == null)
         {
+            OffensivePreset.SetActive(false);
+            DefensivePreset.SetActive(false);
             SpellcardNameText.text = null;
             SpellcardDescriptionText.text = null;
             SpellcardPatternText.text = null;
+            SpellcardModifierText.text = null;
+            SpellcardRawModifierPercentage.text = null;
             spellButton.gameObject.SetActive(false);
             foreach(GameObject g in damageRatingStars)
             {
@@ -62,16 +73,31 @@ public class SpellcardSlotScript : MonoBehaviour
         }
         else
         {
+            //We parse everything to the UI and then decide what we show or not
             SpellcardNameText.text = spellCard.name;
+            SpellcardClassText.text = spellCard.spellClass.ToString();
             SpellcardDescriptionText.text = spellCard.spellDescription;
+            SpellcardModifierText.text = spellCard.Modifiertype.ToString();
+            SpellcardRawModifierPercentage.text = (spellCard.rawPercentageModifier*100).ToString() + "%";
+
             SpellcardPatternText.text = spellCard.pattern.ToString();
             spellButton.gameObject.SetActive(true);
             for (uint i = 0;i<spellCard.rawDamage;i++)
             {
-               
-
                 damageRatingStars[i].SetActive(true);
             }
+
+            if(spellCard.spellClass == SpellCard.Class.Theatrical || spellCard.spellClass == SpellCard.Class.Offensive || spellCard.spellClass == SpellCard.Class.Forbidden || spellCard.spellClass == SpellCard.Class.Bug || spellCard.spellClass == SpellCard.Class.Slave)
+            {
+                OffensivePreset.SetActive(true);
+                DefensivePreset.SetActive(false);
+            }
+            else if (spellCard.spellClass ==  SpellCard.Class.Dope || spellCard.spellClass == SpellCard.Class.Stress)
+            {
+                DefensivePreset.SetActive(true);
+                OffensivePreset.SetActive(false);
+            }
+
 
 
         }

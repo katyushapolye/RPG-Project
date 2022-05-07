@@ -8,6 +8,9 @@ public class CombatHandler : MonoBehaviour
 {
     //Debug//
     public SpellCard InitialSpellcard;
+    public SpellCard InitialSpellcard2;
+    public SpellCard InitialSpellcard3;
+    public SpellCard InitialSpellcard4;
     public Enemy InitalEnemy;
     public Sprite InitialBG;
 
@@ -45,6 +48,9 @@ public class CombatHandler : MonoBehaviour
         //Debug
         CombatData.loadCombatData(InitialBG, InitalEnemy);
         PlayerData.GetGrimoire().Add(InitialSpellcard);
+        PlayerData.GetGrimoire().Add(InitialSpellcard2);
+        PlayerData.GetGrimoire().Add(InitialSpellcard3);
+        PlayerData.GetGrimoire().Add(InitialSpellcard4);
 
 
         audioHandler = FindObjectOfType<AudioHandler>();
